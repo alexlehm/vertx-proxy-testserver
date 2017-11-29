@@ -5,7 +5,7 @@ import io.vertx.core.Future;
 import io.vertx.core.Vertx;
 import io.vertx.core.logging.Logger;
 import io.vertx.core.logging.LoggerFactory;
-import io.vertx.test.core.ConnectHttpProxy;
+import io.vertx.test.core.HttpProxy;
 
 /**
  *
@@ -18,10 +18,10 @@ public class HttpProxyVerticle extends AbstractVerticle {
 
   private Vertx vertx = Vertx.vertx();
 
-  private ConnectHttpProxy proxy;
+  private HttpProxy proxy;
 
   public void start(Future<Void> finished) {
-    proxy = new ConnectHttpProxy(null);
+    proxy = new HttpProxy(null);
 
     proxy.start(vertx, v -> {
       log.info("proxy server started on port " + proxy.getPort());
